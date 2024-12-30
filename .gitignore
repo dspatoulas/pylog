@@ -1,0 +1,17 @@
+# Local Environment Settings
+.idea/
+.DS_Store
+*.env
+
+# Distribution & Build Artifacts
+venv/
+dist/
+build/
+setup_venv.log
+*.spec
+*.pyc
+
+# Coverage Artifacts
+*.coverage
+htmlcov/
+coverage.xml
