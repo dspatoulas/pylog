@@ -3,7 +3,6 @@ from typing import Any
 from aws_lambda_powertools.logging.formatter import LambdaPowertoolsFormatter
 from aws_lambda_powertools.logging.types import LogRecord
 
-
 # ANSI escape codes for styling
 RESET = "\033[0m"
 ITALIC = "\033[3m"
@@ -65,7 +64,11 @@ class PrettyTextFormatter(LambdaPowertoolsFormatter):
             formatted_kv_pairs.append(formatted_kv_pair)
 
         # Build the formatted set of key-value pairs
-        formatted_log_attrs = ", ".join(formatted_kv_pairs)
+        formatted_log_attrs = (
+            f"{ATTRS},{RESET} ".join(formatted_kv_pairs)
+            if self._enable_ascii_colors
+            else ", ".join(formatted_kv_pairs)
+        )
 
         # Used to set the ascii color of log record (if enabled)
         log_level = log["level"].upper()

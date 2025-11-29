@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pylog"
-version = "0.1.0"
+version = "0.1.2"
 description = "A pretty text formatter for contextual logging to stdout"
 authors = ["DJ Spatoulas <djspatoulas@gmail.com>"]
 readme = "README.md"
@@ -9,26 +9,14 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 
-# Python API
-pydantic = ">2"
 pydantic-settings = ">2"
-
-# AWS SDK
-boto3 = "^1.34.18" # Package boto3 up with application to avoid weird distribution issues in runtime container
-aws-lambda-powertools = { extras = ["aws-sdk", "tracer"], version = "2.31.0" }
+aws-lambda-powertools = ">=3.23.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.12.1"
-pyyaml = "~5.3"
-poetry = "^1.7.1"
-isort = "^5.13.2"
-
-# Testing Utils
-coverage = "^7.5.1"
-pytest = "^8.2.0"
-setuptools = "^69.5.1"
+poetry = "^2.2.1"
 
 [build-system]
 requires = ["poetry-core"]
